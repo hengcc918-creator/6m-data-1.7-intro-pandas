@@ -1,37 +1,107 @@
-# **Pre-Class Materials: Lesson 1.7 \- Introduction to Pandas**
+# **Pre-Class Self-Study: Introduction to Pandas**
 
-## **1\. Setup Instructions**
+⏱️ Estimated Time: 45-60 minutes
 
-Ensure your development environment is ready before class starts:
+📅 Complete Before: Lesson Start
 
-* **Environment:** Activate your `pds` conda environment.  
-* **Libraries:** You should have `pandas` and `numpy` installed. If not, run:
+## **🎯 What You'll Learn Before Class**
+
+By completing this pre-class work, you will:
+
+* **Understand** the difference between a list, a dictionary, and a Pandas DataFrame.  
+* **Identify** the two core Pandas structures: Series and DataFrame.  
+* **Recognize** how to import Pandas and Numpy.
+
+## **💻 Part 1: Environment Setup (15-20 min)**
+
+### **Prerequisites**
+
+Ensure you have Python 3.8+ and Jupyter Notebook/Lab installed.
+
+### **Installation Instructions**
+
+Open your terminal or command prompt and run:
 
 ```
+pip install pandas numpy
+# Or using conda:
 conda install pandas numpy
 ```
 
-* **Files:** Download `pandas_lesson.ipynb` from the course portal and place it in your `notebooks/` folder.
+### **Verification**
 
-## **2\. Prerequisites (Assumed Knowledge)**
+Create a new Jupyter Notebook and run this cell:
 
-This lesson builds directly on your previous NumPy session. You should be comfortable with:
+```python
+import pandas as pd
+import numpy as np
 
-* Creating NumPy arrays (`np.array`, `np.arange`).  
-* Understanding array shapes and dimensions.  
-* Basic Python dictionaries (keys and values).  
-* Python slicing notation (`[start:stop]`).
+print(f"Pandas version: {pd.__version__}")
+print("✅ Environment is ready!")
+```
 
-## **3\. Intro Reading: Why Pandas? (300 words)**
+## **📚 Part 2: Course Introduction (10-15 min)**
 
-While NumPy is the king of numerical arrays, it lacks one thing essential for real-world data: **Context**.
+### **What Is Pandas?**
 
-Imagine a dataset of housing prices. In NumPy, it's just a matrix of numbers. You have to remember that "Column 0 is the square footage" and "Column 1 is the number of bedrooms." If you delete a column or reorder the rows, you might lose track of what the numbers represent.
+Pandas is the Excel of Python. It takes data that might look like a messy pile of lists or dictionaries and organizes it into a clean, tabular format called a **DataFrame**.
 
-**Pandas adds the labels.** It introduces the **DataFrame**, which is essentially a programmable Excel spreadsheet. Every row and every column has a name (an Index). This "Label-based" approach makes your code:
+Real-World Example:
 
-1. **Readable:** Instead of `data[:, 5]`, you write `data['Price']`.  
-2. **Safe:** If you add two datasets together, Pandas doesn't just add them by position; it aligns them by their labels. If 'User\_A' is at Row 0 in one table and Row 10 in another, Pandas finds 'User\_A' in both and adds them correctly.
+Imagine you have sales data. In standard Python, calculating the "Average Sales per Region" requires loops and complex logic. In Pandas, it's often a single line of code.
 
-In this lesson, we will move from thinking in "indices" (0, 1, 2\) to thinking in "labels" (Name, Date, Price).
+### **Why This Matters**
 
+* **Efficiency:** Handle millions of rows in seconds.  
+* **Integration:** Works perfectly with visualization tools and machine learning libraries.  
+* **Standard:** It is the industry standard for data manipulation in Python.
+
+## **🧠 Part 3: Basic Concepts (20-25 min)**
+
+### **Concept 1: The Series**
+
+Definition: A Series is a one-dimensional labeled array.
+
+Analogy: Think of a Series like a single column in an Excel sheet. It has values, and it has row labels (the index).
+
+**Try It Yourself:**
+
+```python
+import pandas as pd
+# A simple list of data
+data = [10, 20, 30, 40]
+# Converting it to a Pandas Series
+s = pd.Series(data, index=['a', 'b', 'c', 'd'])
+print(s)
+```
+
+### **Concept 2: The DataFrame**
+
+Definition: A DataFrame is a 2-dimensional labeled data structure with columns of potentially different types.
+
+Analogy: Think of a DataFrame like the whole Spreadsheet. It is essentially a collection of Series (columns) that share the same index (rows).
+
+**Try It Yourself:**
+
+```
+# A dictionary where keys are column names
+data = {
+    'Apples': [3, 2, 0, 1],
+    'Oranges': [0, 3, 7, 2]
+}
+df = pd.DataFrame(data)
+print(df)
+```
+
+## **✅ Pre-Class Self-Check**
+
+Before Zoom class, make sure you can:
+
+* \[ \] Import pandas as pd.  
+* \[ \] Create a simple Series from a list.  
+* \[ \] Explain the difference between a Series and a DataFrame.
+
+## **❓ Pre-Class Questions to Consider**
+
+1. Why might we want to label our data (using an Index) instead of just using numbered positions (0, 1, 2)?  
+2. If a DataFrame is a collection of Series, what happens if we extract just one column from a DataFrame?
