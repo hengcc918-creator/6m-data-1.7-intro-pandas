@@ -12,10 +12,10 @@ Paste the answer as Python in the answer code section below each question.
 
 Question: Select all numeric columns except float from the DataFrame `dft`.
 
-Answer:
+Answer: 
 
 ```python
-
+dft.select_dtypes(exclude=['float64'])
 ```
 
 ### Question 2
@@ -25,7 +25,7 @@ Question: How do you return the last 3 rows of a DataFrame `df`?
 Answer:
 
 ```python
-
+df.tail(3)
 ```
 
 ### Question 3
@@ -35,7 +35,13 @@ Question: Return the minimum and maximum of a Series `x` as a new Series with th
 Answer:
 
 ```python
+x = pd.Series([5, 2, 7, 9, 10])
 
+def max_min_values(series):
+    return np.x({'max': series.max(), 'min': series.min()})
+
+print("Max:", x.max())
+print("Min:", x.min())
 ```
 
 ### Question 4
@@ -45,7 +51,7 @@ Question: Multiply `df1` and `df2` (two DataFrames) with a `fill_value` of 1.
 Answer:
 
 ```python
-
+result = df1.mul(df2, fill_value=1)
 ```
 
 ### Question 5
@@ -59,7 +65,7 @@ nested_dict = {'A': {'a': 1, 'b': 2}, 'B': {'a': 3, 'b': 4}}
 Answer:
 
 ```python
-
+df = pd.DataFrame(nested_dict)
 ```
 
 # **Post-Class Self-Study: Optional Pandas Topics**
